@@ -24,9 +24,11 @@ class Solution:
         Input:  numRows -> an integer
         Return: The first numRows of Pascal's triangle.
         """
-        output = [[1], [1,1]]
         
+        # Constraint check
         assert 1 <= numRows <= 30, f"Integer must be in [1, 30]"
+
+        output = [[1], [1,1]]
 
         if numRows == 1:
             print(output[0])
@@ -45,7 +47,7 @@ class Solution:
                 output.append(newlist)
             print(output)
             
-            #Other form of priting
+            #Other form of printing
 
             # for i in range(len(output)):
             #     print(output[i],'\n')
