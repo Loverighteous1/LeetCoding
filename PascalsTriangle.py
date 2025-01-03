@@ -47,7 +47,7 @@ class Solution:
                 output.append(newlist)
             print(output)
             
-            #Other form of priting
+            #Other form of printing
 
             # for i in range(len(output)):
             #     print(output[i],'\n')
