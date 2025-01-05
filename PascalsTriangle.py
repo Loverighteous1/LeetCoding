@@ -31,7 +31,7 @@ class Solution:
         output = [[1], [1,1]]
 
         if numRows == 1:
-            print(output[0])
+            print(list(output[0]))
         elif numRows == 2:
             print(output)
         else:
