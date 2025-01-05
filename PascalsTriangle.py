@@ -45,6 +45,7 @@ class Solution:
                 newlist.append(1)
                 #print(newlist)
                 output.append(newlist)
+            assert all(isinstance(elt, list) for elt in output), "Elements of the resulting list are not all list "
             print(output)
             
             #Other form of printing
