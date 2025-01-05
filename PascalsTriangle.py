@@ -31,7 +31,7 @@ class Solution:
         output = [[1], [1,1]]
 
         if numRows == 1:
-            print(output[0])
+            print(list(output[0]))
         elif numRows == 2:
             print(output)
         else:
@@ -45,6 +45,7 @@ class Solution:
                 newlist.append(1)
                 #print(newlist)
                 output.append(newlist)
+            assert all(isinstance(elt, list) for elt in output), "Elements of the resulting list are not all list "
             print(output)
             
             #Other form of printing
