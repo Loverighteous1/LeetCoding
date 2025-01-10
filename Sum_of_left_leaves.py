@@ -28,7 +28,11 @@ The number of nodes in the tree is in the range [1, 1000].
 
 ### Solution
 
+from typing import Optional
+
+
 # Definition for a binary tree node.
+
 class TreeNode:
     def __init__(self, val=0, left=None, right=None):
         self.val = val
@@ -45,5 +49,19 @@ class Solution:
         Input: root(list)
         
         Output: sum_lleaves(integer)
+
         """
-        
+    
+    # Node = 
+    # assert -1000 <= Node.val <= 1000
+    sum_ll = 0
+    root_len = len(root)
+    if root_len == 1:
+        sum_ll = 0
+    else:
+        i = 0
+        while i < (root_len//2):
+            if root[2 * i + 1] != "null":
+                sum_ll += root[2 * i + 1]
+            i += 1
+    return sum_ll
