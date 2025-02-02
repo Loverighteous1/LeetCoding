@@ -30,7 +30,7 @@ Constraints:
 
 class Solution:
     
-    def decimal_to_binary(self, number, bit_width=None):
+    def decimal_to_binary(self, number: int, bit_width=None):
         
         binary_number = ""
 
@@ -47,7 +47,6 @@ class Solution:
         if bit_width is not None:
             binary_number = binary_number.zfill(bit_width)
 
-        return binary_number
         
     def hammingDistance(self, x: int, y: int) -> int:
         """
@@ -60,7 +59,7 @@ class Solution:
         ham_dist : hamming_distance between x and y -> interger.
 
         """
-        assert 0 <= x and y <= 2^31 - 1, f" 0 <= x and y <= 2^31 - 1 "
+        assert 0 <= x and y <= 2**31 - 1, f" 0 <= x and y <= 2^31 - 1 "
         x_binary = str(self.decimal_to_binary(x,4))
         y_binary = str(self.decimal_to_binary(y,4))
         ham_dist = 0
