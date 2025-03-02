@@ -1,14 +1,38 @@
-
-from itertools import product
 from string import ascii_uppercase
 
 class Solution:
     def convertToTitle(self, columnNumber: int) -> str:
 
         """
-        Given an integer columnNumber, return its corresponding column title as it appears in an Excel sheet.
+        Description:
+        Given an integer columnNumber, the function returns its corresponding column title as it appears in an Excel sheet.
 
-        For example:
+        Inputs: 
+            columnNumber : an integer between 1 and 2^31 - 1
+
+        Outputs:
+            title: string of character(s) as in excel sheets
+
+        """
+        assert 1 <= columnNumber <= 2**31 - 1, f"{columnNumber} must be an integer in [1,  {2**31 - 1}]"
+        alphabet = string.ascii_uppercase
+        user_colnb = columnNumber - 1
+        if user_colnb < 26:
+            col_title = alphabet[user_colnb]
+            assert 1<= len(col_title) <= 7, "The title length is not in [1, 7]"
+            # assert "A" <= col_title <= "FXSHRXW", f"{col_title} is not in [A, FXSHRXW]"
+            return col_title
+        quotient = user_colnb//26
+        remainder = user_colnb%26
+        col_title = convertToTitle(quotient) + alphabet[remainder]
+        assert isinstance(col_title, str), "'Return' type is not a string"
+        assert 1<= len(col_title) <= 7, "The title length is not in [1, 7]"
+        return col_title
+        
+
+
+"""
+For example:
 
         A -> 1
         B -> 2
@@ -32,20 +56,4 @@ class Solution:
 
         Input: columnNumber = 701
         Output: "ZY"
-
-        """
-        assert 1 <= columnNumber <= 2**31 - 1, f"Column number must be an integer greater than 0 and less or equal to  2^31 - 1"
-
-        xl_titles = []
-        for i in range(1, 6):
-            #session is crashing after 6
-            print(i)
-            combs = [''.join(list(item)) for item in product(ascii_uppercase, repeat=i)]
-            xl_titles.extend(combs)
-        col_title  = xl_titles[columnNumber - 1]
-
-        assert isinstance(col_title, str), "'Return' type is not a string"
-        
-        return col_title
-
-# len(xl_titles) = 12356630
+"""
